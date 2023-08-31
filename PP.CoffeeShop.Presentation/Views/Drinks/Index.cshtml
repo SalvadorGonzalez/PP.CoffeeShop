@@ -1,0 +1,51 @@
+﻿@using PP.CoffeeShop.Presentation.Data;
+@using PP.CoffeeShop.Presentation.Models.ViewModels;
+
+@model DrinkCategoryViewModel
+
+
+<partial name="_SideNavigationBar" />
+
+<div class="col-8">
+    <h2>@Model.CategoryName</h2>
+    <hr>
+
+    <div class="row  ">
+        @foreach (var category in Model.Drinks)
+        {
+            <div class="col-6 category-thumbnail align-items-center">
+
+                <a asp-controller="Menu" asp-action="Product" asp-route-id="@category.Id">
+                    @if (string.IsNullOrEmpty(category.ImageUrl))
+                    {
+                        <img src="https://www.starbucks.com/weblx/images/product-placeholder.png" alt="..." class="img-thumbnail rounded-circle">
+
+                    }
+                    else
+                    {
+                        <img src="@category.ImageUrl" alt="..." class="img-thumbnail rounded-circle">
+                    }
+
+                </a>
+                <h3>@category.Name</h3>
+            </div>
+
+        }
+    </div>
+
+
+</div>
+@*
+@foreach (var item in Model)
+{
+    <span>@item.Name</span>
+    <hr />
+}*@
+
+<style>
+    .category-thumbnail > a > img {
+        /*max-width: 112px;*/
+        max-height: 150px;
+    }
+</style>
+

@@ -23,6 +23,11 @@ namespace PP.CoffeeShop.Presentation.Business.Services
             return _repository.GetDrinkCategories();
         }
 
+        public DrinkCategory GetDrinkCategory(int categoryId)
+        {
+            return _repository.GetDrinkCategory(categoryId);
+        }
+
         public List<Drink> GetDrinks()
         {
             var result = _repository.GetDrinks();

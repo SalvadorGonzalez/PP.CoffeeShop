@@ -35,5 +35,11 @@ namespace PP.CoffeeShop.Presentation.Data.Repositories
             var result = _db.Drinks.Include(cat => cat.Category).Where(x => x.CategoryId == categoryId).ToList();
             return result;
         }
+
+        public DrinkCategory GetDrinkCategory(int categoryId)
+        {
+            var result = _db.DrinkCategories.Find(categoryId);
+            return result;
+        }
     }
 }

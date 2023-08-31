@@ -19,7 +19,7 @@ namespace PP.CoffeeShop.Presentation.Controllers
             return View(categories);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Product(int id)
         {
             if (id <= 0)
             {
@@ -30,10 +30,10 @@ namespace PP.CoffeeShop.Presentation.Controllers
             return View(drink);
         }
 
-        public IActionResult Drinks(int categoryId)
-        {
-            var result = _drinkService.GetDrinksByCategory(categoryId);
-            return View(result);
-        }
+        //public IActionResult Drinks(int categoryId)
+        //{
+        //    var result = _drinkService.GetDrinksByCategory(categoryId);
+        //    return View(result);
+        //}
     }
 }

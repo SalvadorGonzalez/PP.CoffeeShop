@@ -8,5 +8,6 @@ namespace PP.CoffeeShop.Presentation.Business.Services
         public Drink GetDrink(int id);
         public List<DrinkCategory> GetDrinkCategories();
         public List<Drink> GetDrinksByCategory(int categoryId);
+        public DrinkCategory GetDrinkCategory(int categoryId);
     }
 }
