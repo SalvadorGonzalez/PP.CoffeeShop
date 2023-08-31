@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using PP.CoffeeShop.Presentation.Business.Services;
+using PP.CoffeeShop.Presentation.Data;
+using PP.CoffeeShop.Presentation.Data.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
+
+builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
+builder.Services.AddTransient<IDrinkService, DrinkService>();
 
 var app = builder.Build();
 
