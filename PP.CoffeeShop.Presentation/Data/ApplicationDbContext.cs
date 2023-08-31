@@ -10,5 +10,6 @@ namespace PP.CoffeeShop.Presentation.Data
         }
 
         public DbSet<Drink> Drinks { get; set; }
+        public DbSet<DrinkCategory> DrinkCategories { get; set; }
     }
 }

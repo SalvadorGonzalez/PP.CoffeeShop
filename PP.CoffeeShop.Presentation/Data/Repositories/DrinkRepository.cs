@@ -1,4 +1,6 @@
-﻿namespace PP.CoffeeShop.Presentation.Data.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace PP.CoffeeShop.Presentation.Data.Repositories
 {
     public class DrinkRepository : IDrinkRepository
     {
@@ -11,7 +13,8 @@
 
         public Drink GetDrink(int id)
         {
-            var result = _db.Drinks.Find(id);
+            //var result = _db.Drinks.Find(id);
+            var result = _db.Drinks.Include(category => category.Category).ToList().Find(x => x.Id == id);
             return result;
         }
 
