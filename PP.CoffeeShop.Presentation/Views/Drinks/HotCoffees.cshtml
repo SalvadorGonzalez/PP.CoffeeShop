@@ -1,0 +1,50 @@
+﻿@using PP.CoffeeShop.Presentation.Data;
+
+@model List<Drink>
+
+
+<partial name="_SideNavigationBar" />
+
+<div class="col-8">
+    <h2>Hot Coffees</h2>
+    <hr>
+
+    <div class="row  ">
+        @foreach (var category in Model)
+        {
+            <div class="col-6 category-thumbnail align-items-center">
+
+                <a asp-controller="Drinks" asp-action="HotCoffees" asp-route-drinkCategory="@category.Id">
+                    @if (string.IsNullOrEmpty(category.ImageUrl))
+                    {
+                        <img src="https://www.starbucks.com/weblx/images/product-placeholder.png" alt="..." class="img-thumbnail rounded-circle">
+
+                    }
+                    else
+                    {
+                        <img src="@category.ImageUrl" alt="..." class="img-thumbnail rounded-circle">
+                    }
+
+                </a>
+                <h3>@category.Name</h3>
+            </div>
+
+        }
+    </div>
+
+
+</div>
+@*
+@foreach (var item in Model)
+{
+    <span>@item.Name</span>
+    <hr />
+}*@
+
+<style>
+    .category-thumbnail > a > img {
+        /*max-width: 112px;*/
+        max-height: 150px;
+    }
+</style>
+
