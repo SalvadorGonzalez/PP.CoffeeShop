@@ -14,8 +14,9 @@ namespace PP.CoffeeShop.Presentation.Controllers
 
         public IActionResult Index()
         {
-            var drinks = _drinkService.GetDrinks();
-            return View(drinks);
+            //var drinks = _drinkService.GetDrinks();
+            var categories = _drinkService.GetDrinkCategories();
+            return View(categories);
         }
 
         public IActionResult Details(int id)
@@ -27,6 +28,12 @@ namespace PP.CoffeeShop.Presentation.Controllers
 
             var drink = _drinkService.GetDrink(id);
             return View(drink);
+        }
+
+        public IActionResult Drinks(int categoryId)
+        {
+            var result = _drinkService.GetDrinksByCategory(categoryId);
+            return View(result);
         }
     }
 }

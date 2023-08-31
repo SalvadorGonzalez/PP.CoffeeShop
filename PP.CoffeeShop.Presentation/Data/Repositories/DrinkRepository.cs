@@ -23,5 +23,17 @@ namespace PP.CoffeeShop.Presentation.Data.Repositories
             var result = _db.Drinks.ToList();
             return result;
         }
+
+        public List<DrinkCategory> GetDrinkCategories()
+        {
+            var result = _db.DrinkCategories.ToList();
+            return result;
+        }
+
+        public List<Drink> GetDrinksByCategory(int categoryId)
+        {
+            var result = _db.Drinks.Include(cat => cat.Category).Where(x => x.CategoryId == categoryId).ToList();
+            return result;
+        }
     }
 }
