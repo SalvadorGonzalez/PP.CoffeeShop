@@ -6,7 +6,16 @@
 
 <partial name="_SideNavigationBar" />
 
+
+
+
 <div class="col-8">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.CategoryName</li>
+        </ol>
+    </nav>
     <h2>@Model.CategoryName</h2>
     <hr>
 
